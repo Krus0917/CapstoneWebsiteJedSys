@@ -79,9 +79,9 @@ defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9);      // lowest au
 defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125);    // highest automatically-assigned error code
 
 defined('BASEURL')             || define('BASEURL', 'https://eden-island-frontier.vercel.app/');
-defined('CSS')                 || define('CSS', BASEURL.'public/css/');
-defined('JS')                  || define('JS', BASEURL.'public/js/');
-defined('IMG')                 || define('IMG', BASEURL.'public/img/');
+defined('CSS')                 || define('CSS', BASEURL.'css/');
+defined('JS')                  || define('JS', BASEURL.'js/');
+defined('IMG')                 || define('IMG', BASEURL.'img/');
 
 /**
  * @deprecated Use \CodeIgniter\Events\Events::PRIORITY_LOW instead.
