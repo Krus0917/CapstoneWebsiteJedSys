@@ -78,7 +78,7 @@ defined('EXIT_DATABASE')       || define('EXIT_DATABASE', 8);       // database 
 defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9);      // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125);    // highest automatically-assigned error code
 
-defined('BASEURL')             || define('BASEURL', 'https://eden-island-frontier.vercel.app/');
+defined('BASEURL')             || define('BASEURL', 'http://localhost/CapstoneWebsiteJedSys/');
 defined('CSS')                 || define('CSS', BASEURL.'public/css/');
 defined('JS')                  || define('JS', BASEURL.'public/js/');
 defined('IMG')                 || define('IMG', BASEURL.'public/img/');
