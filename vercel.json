@@ -1,18 +1,30 @@
 {
-  "version": 2,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.6.2"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
+      "source": "/img/:path*",
+      "destination": "/public/img/:path*"
     },
     {
-      "src": "/(.*)",
-      "dest": "/api/index.php"
+      "source": "/css/:path*",
+      "destination": "/public/css/:path*"
+    },
+    {
+      "source": "/js/:path*",
+      "destination": "/public/js/:path*"
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/public/favicon.ico"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/api/index.php"
     }
   ]
 }
