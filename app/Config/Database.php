@@ -192,12 +192,24 @@ class Database extends Config
     public function __construct()
     {
         parent::__construct();
-
-        $this->default['hostname'] = env('DB_HOST', $this->default['hostname']);
-        $this->default['port']     = (int) env('DB_PORT', $this->default['port']);
-        $this->default['database'] = env('DB_DATABASE', $this->default['database']);
-        $this->default['username'] = env('DB_USERNAME', $this->default['username']);
-        $this->default['password'] = env('DB_PASSWORD', $this->default['password']);
-        $this->default['DBDriver'] = env('DB_DRIVER', $this->default['DBDriver']);
+    
+        if (ENVIRONMENT === 'testing') {
+            $this->defaultGroup = 'tests';
+        }
+    
+        // Use Aiven MySQL when deployed on Vercel
+        if (env('DB_HOST')) {
+            $this->default['hostname'] = env('DB_HOST');
+            $this->default['port'] = (int) env('DB_PORT', 3306);
+            $this->default['database'] = env('DB_DATABASE');
+            $this->default['username'] = env('DB_USERNAME');
+            $this->default['password'] = env('DB_PASSWORD');
+            $this->default['DBDriver'] = env('DB_DRIVER', 'MySQLi');
+    
+            $this->default['encrypt'] = [
+                'ssl_ca'     => APPPATH . 'Config/aiven-ca.pem',
+                'ssl_verify' => true,
+            ];
+        }
     }
 }
