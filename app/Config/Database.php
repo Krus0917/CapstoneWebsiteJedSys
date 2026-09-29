@@ -26,22 +26,22 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => env('database.default.hostname', 'localhost'),
-        'username'     => env('database.default.username', 'root'),
-        'password'     => env('database.default.password', ''),
-        'database'     => env('database.default.database', 'admin'),
-        'DBDriver'     => env('database.default.DBDriver', 'MySQLi'),
+        'hostname'     => 'localhost',
+        'username'     => 'root',
+        'password'     => '',
+        'database'     => 'admin',
+        'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
-        'DBDebug'      => env('database.default.DBDebug', true),
+        'DBDebug'      => true,
         'charset'      => 'utf8mb4',
         'DBCollat'     => 'utf8mb4_general_ci',
         'swapPre'      => '',
-        'encrypt'      => env('database.default.encrypt', false),
+        'encrypt'      => false,
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
-        'port'         => env('database.default.port', 3306),
+        'port'         => 3306,
         'numberNative' => false,
         'foundRows'    => false,
         'dateFormat'   => [
@@ -193,11 +193,11 @@ class Database extends Config
     {
         parent::__construct();
 
-        // Ensure that we always set the database group to 'tests' if
-        // we are currently running an automated test suite, so that
-        // we don't overwrite live data on accident.
-        if (ENVIRONMENT === 'testing') {
-            $this->defaultGroup = 'tests';
-        }
+        $this->default['hostname'] = env('DB_HOST', $this->default['hostname']);
+        $this->default['port']     = (int) env('DB_PORT', $this->default['port']);
+        $this->default['database'] = env('DB_DATABASE', $this->default['database']);
+        $this->default['username'] = env('DB_USERNAME', $this->default['username']);
+        $this->default['password'] = env('DB_PASSWORD', $this->default['password']);
+        $this->default['DBDriver'] = env('DB_DRIVER', $this->default['DBDriver']);
     }
 }
