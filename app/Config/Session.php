@@ -3,7 +3,7 @@
 namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
-use CodeIgniter\Session\Handlers\BaseHandler;
+
 use CodeIgniter\Session\Handlers\DatabaseHandler;
 
 class Session extends BaseConfig
