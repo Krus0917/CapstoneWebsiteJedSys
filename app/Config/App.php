@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://localhost/CapstoneWebsiteJedSys/';
+    public string $baseURL = 'https://eden-island-frontier.vercel.app/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
