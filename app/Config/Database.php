@@ -26,30 +26,30 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => 'root',
-        'password'     => '',
-        'database'     => 'admin',
-        'DBDriver'     => 'MySQLi',
+        'hostname'     => env('database.default.hostname', 'localhost'),
+        'username'     => env('database.default.username', 'root'),
+        'password'     => env('database.default.password', ''),
+        'database'     => env('database.default.database', 'admin'),
+        'DBDriver'     => env('database.default.DBDriver', 'MySQLi'),
         'DBPrefix'     => '',
         'pConnect'     => false,
-        'DBDebug'      => true,
+        'DBDebug'      => env('database.default.DBDebug', true),
         'charset'      => 'utf8mb4',
         'DBCollat'     => 'utf8mb4_general_ci',
         'swapPre'      => '',
-        'encrypt'      => false,
+        'encrypt'      => env('database.default.encrypt', false),
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
-        'port'         => 3306,
+        'port'         => env('database.default.port', 3306),
         'numberNative' => false,
         'foundRows'    => false,
         'dateFormat'   => [
             'date'     => 'Y-m-d',
             'datetime' => 'Y-m-d H:i:s',
             'time'     => 'H:i:s',
-        ],
-    ];
+    ],
+];
 
     //    /**
     //     * Sample database connection for SQLite3.
