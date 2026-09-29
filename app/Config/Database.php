@@ -207,7 +207,7 @@ class Database extends Config
             $this->default['DBDriver'] = env('DB_DRIVER', 'MySQLi');
     
             $this->default['encrypt'] = [
-                'ssl_ca'     => APPPATH . 'Config/aiven-ca.pem',
+                'ssl_ca'     => realpath(APPPATH . 'Config/aiven-ca.pem'),
                 'ssl_verify' => true,
             ];
         }
